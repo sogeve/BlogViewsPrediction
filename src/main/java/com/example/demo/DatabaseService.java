@@ -35,8 +35,8 @@ public class DatabaseService {
 
     }
 
-    public Stats setNewIfEmpty() {
-        List<Stats>
-    }
+//    public Stats setNewIfEmpty() {
+//        List<Stats>
+//    }
 
 }

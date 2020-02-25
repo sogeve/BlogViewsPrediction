@@ -22,11 +22,22 @@ public class DemoApplication {
 
     @Bean
     public CommandLineRunner clr(DatabaseService databaseService) {
-        return args -> {
-            databaseService.addEvent("e1a", 3333);
+        return new CommandLineRunner() {
+            @Override
+            public void run(String... args) throws Exception {
+//            databaseService.addEvent("Example event", 200);
+//            databaseService.addEvent("Example event 2", 50);
 
-            List<Events> allEvents = databaseService.getAllEvents();
-            log.info("Evens: {}", allEvents);
+                List<Event> allEvents = databaseService.getAllEvents();
+                log.info("Event: {}", allEvents);
+
+                databaseService.deleteEvent("Example event 2");
+
+
+                allEvents = databaseService.getAllEvents();
+                log.info("Event: {}", allEvents);
+
+            }
         };
     }
 

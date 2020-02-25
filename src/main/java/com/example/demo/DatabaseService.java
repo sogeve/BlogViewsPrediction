@@ -10,22 +10,33 @@ import java.util.List;
 public class DatabaseService {
 
     private final EventRepository eventRepository;
+//    private final StatsRepository statsRepository;
 
 
     public DatabaseService(EventRepository eventRepository) {
         this.eventRepository = eventRepository;
     }
 
-    public Events addEvent(String name, Integer viewIncrease) {
-        Events events = new Events();
-        events.setName(name);
-        events.setViewsIncrease(viewIncrease);
+    public Event addEvent(String name, Integer activityIncrease) {
+        Event event = new Event();
+        event.setName(name);
+        event.setActivityIncrease(activityIncrease);
 
-        return eventRepository.save(events);
+        return eventRepository.save(event);
     }
 
-    public List<Events> getAllEvents() {
-        return (List<Events>) eventRepository.findAll();
+    public List<Event> getAllEvents() {
+        return (List<Event>) eventRepository.findAll();
+    }
+
+
+    public void deleteEvent(String name) {
+        eventRepository.deleteEvent(name);
+
+    }
+
+    public Stats setNewIfEmpty() {
+        List<Stats>
     }
 
 }

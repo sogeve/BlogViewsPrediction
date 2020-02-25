@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class Events {
+public class Event {
 
     @Id
     @GeneratedValue
@@ -17,11 +17,11 @@ public class Events {
     private String name;
 
     @Column(nullable = false)
-    private Integer viewsIncrease;
+    private Integer activityIncrease;
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, viewsIncrease);
+        return Objects.hash(id, name, activityIncrease);
     }
 
     public Long getId() {
@@ -40,20 +40,20 @@ public class Events {
         this.name = name;
     }
 
-    public Integer getViewsIncrease() {
-        return viewsIncrease;
+    public Integer getActivityIncrease() {
+        return activityIncrease;
     }
 
-    public void setViewsIncrease(Integer viewsIncrease) {
-        this.viewsIncrease = viewsIncrease;
+    public void setActivityIncrease(Integer activityIncrease) {
+        this.activityIncrease = activityIncrease;
     }
 
     @Override
     public String toString() {
-        return "Events{" +
+        return "Event{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", viewsIncrease=" + viewsIncrease +
+                ", activityIncrease=" + activityIncrease +
                 '}';
     }
 
@@ -61,10 +61,10 @@ public class Events {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Events events = (Events) o;
-        return id.equals(events.id) &&
-                name.equals(events.name) &&
-                viewsIncrease.equals(events.viewsIncrease);
+        Event event = (Event) o;
+        return id.equals(event.id) &&
+                name.equals(event.name) &&
+                activityIncrease.equals(event.activityIncrease);
     }
 
 }

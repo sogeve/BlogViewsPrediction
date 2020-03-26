@@ -35,6 +35,11 @@ public class DatabaseService {
 
     }
 
+    public void editEvent(String name, Integer activityIncrease) {
+        eventRepository.editEvent(name, activityIncrease);
+
+    }
+
 //    public Stats setNewIfEmpty() {
 //        List<Stats>
 //    }

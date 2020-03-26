@@ -25,8 +25,9 @@ public class DemoApplication {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
-//            databaseService.addEvent("Example event", 200);
-//            databaseService.addEvent("Example event 2", 50);
+            databaseService.addEvent("Example event", 200);
+            databaseService.addEvent("Example event 2", 50);
+            databaseService.addEvent("Example event 3", 50);
 
                 List<Event> allEvents = databaseService.getAllEvents();
                 log.info("Event: {}", allEvents);
@@ -36,6 +37,12 @@ public class DemoApplication {
 
                 allEvents = databaseService.getAllEvents();
                 log.info("Event: {}", allEvents);
+
+                databaseService.editEvent("Example event", 500);
+
+                allEvents = databaseService.getAllEvents();
+                log.info("Event: {}", allEvents);
+
 
             }
         };
